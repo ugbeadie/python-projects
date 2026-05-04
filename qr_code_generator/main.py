@@ -1,3 +1,24 @@
+"""
+Simple QR code generator.
+
+Install dependency first:
+    pip install "qrcode[pil]"
+
+Run:
+    python qr_generator.py
+"""
+
+
+import qrcode
+
+data = input("Enter the data to encode in the QR code: ").strip()
+filename = input("Enter the filename to save the QR code ").strip()
+qr = qrcode.QRCode(box_size=10, border=4)
+qr.add_data(data)
+image = qr.make_image(fill_color="black", back_color="white")
+image.save(filename)
+print(f"QR code generated and saved as {filename}")
+
 # import base64
 # from io import BytesIO
 
@@ -329,5 +350,5 @@ def perimeter_triangle():
 # f.write("")
 # f.close()
 
-with open(r"C:\Users\DELL\Desktop\groceries.txt", "a") as f:
-    f.write("\nbanana")
+# with open(r"C:\Users\DELL\Desktop\groceries.txt", "a") as f:
+#     f.write("\nbanana")
